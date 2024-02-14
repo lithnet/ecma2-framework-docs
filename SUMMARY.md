@@ -2,18 +2,23 @@
 
 * [Home](README.md)
 
-## Getting started
+## Using the Framework
 * [Getting started](getting-started.md)
 * [Definining the schema](defining-the-schema.md)
 * [Definining capabilites](defining-capabilities.md)
 * [Defining configuration parameters](ma-config.md)
 * [Using the ProducerConsumerImportProvider<T>](using-the-producer-consumer.md)
 * [Building single-file assemblies](single-file-assemblies.md)
+
+## Additional resources
+* [Example projects](framework-projects.md)
+    * [Lithnet Okta Management Agent](https://github.com/lithnet/okta-managementagent)
+    * [Simple example](https://github.com/lithnet/ecma2-framework/tree/master/src/Lithnet.Ecma2Framework.Example)
 * [Troubleshooting](troubleshooting.md)
 * [Change log](change-log.md)
 
-## Reference
-* [Code reference](reference/index.md)
+## Advanced
+* [API Reference](reference/index.md)
     * [CapabilitiesConfigurationAttribute](reference/lithnet.ecma2framework.capabilitiesconfigurationattribute.md)
     * [CheckboxParameterAttribute](reference/lithnet.ecma2framework.checkboxparameterattribute.md)
     * [ConnectivityConfigurationAttribute](reference/lithnet.ecma2framework.connectivityconfigurationattribute.md)
