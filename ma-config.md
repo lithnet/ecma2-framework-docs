@@ -1,25 +1,16 @@
 # Configuration parameters
 The Lithnet ECMA2 Framework provides two ways for you to configure the parameters that are shown in the MIM user interface. 
 
-## Config pages
 MIM allows you to provide configuration pages for the following sections
-### Capabilities 
-The capabilites when a management agent is first added to the sync engine. It is not shown again after the MA is created. It is a one-time-setup opportunity to define the capability of the management agent to MIM.
 
-### Connectivity
-The connectivity page is typically used to define the setup to the remote server or data source. It's shown before the schema, but after capabilites have been determined
-
-### Schema
-Before MIM calls for your schema, you have a chance to ask the user for configuration that will influence the schema provided to MIM
-
-### Global
-The Global page contains generic settings used for all operations
-
-### RunStep
-The RunStep page is shown when configuring a run step on the management agent
-
-### Partition
-The partition page is shown only on management agents that support partitions, and can be used to configure partition-specific information.
+| Page | Description |
+| --- | --- |
+| Capabilities | The capabilites when a management agent is first added to the sync engine. It is not shown again after the MA is created. It is a one-time-setup opportunity to define the capability of the management agent to MIM. |
+| Connectivity | The connectivity page is typically used to define the setup to the remote server or data source. It's shown before the schema, but after capabilites have been determined |
+| Schema | Before MIM calls for your schema, you have a chance to ask the user for configuration that will influence the schema provided to MIM |
+| Global | The Global page contains generic settings used for all operations |
+| RunStep | The RunStep page is shown when configuring a run step on the management agent |
+| Partition | The partition page is shown only on management agents that support partitions, and can be used to configure partition-specific information. |
 
 ## Method 1: Manual definition using `IConfigParametersProvider`
 The configuration parameters can be configured in the traditional way by implementing the `IConfigParametersProvider` interface. This is similar to using the native `IMAExtensible2GetParameters` interface, in that you get to define your parameters and validation logic in code.
@@ -48,21 +39,6 @@ internal class ConfigParametersProvider : IConfigParametersProvider
         return Task.CompletedTask;
     }
 
-    public Task GetPartitionConfigParametersAsync(IConfigParameters existingParameters, IList<ConfigParameterDefinition> newDefinitions)
-    {
-        return Task.CompletedTask;
-    }
-
-    public Task GetRunStepConfigParametersAsync(IConfigParameters existingParameters, IList<ConfigParameterDefinition> newDefinitions)
-    {
-        return Task.CompletedTask;
-    }
-
-    public Task GetSchemaConfigParametersAsync(IConfigParameters existingParameters, IList<ConfigParameterDefinition> newDefinitions, int pageNumber)
-    {
-        return Task.CompletedTask;
-    }
-
     public Task<ParameterValidationResult> ValidateCapabilitiesConfigParametersAsync(IConfigParameters configParameters)
     {
         return Task.FromResult(new ParameterValidationResult());
@@ -81,21 +57,6 @@ internal class ConfigParametersProvider : IConfigParametersProvider
     }
 
     public Task<ParameterValidationResult> ValidateGlobalConfigParametersAsync(IConfigParameters configParameters)
-    {
-        return Task.FromResult(new ParameterValidationResult());
-    }
-
-    public Task<ParameterValidationResult> ValidatePartitionConfigParametersAsync(IConfigParameters configParameters)
-    {
-        return Task.FromResult(new ParameterValidationResult());
-    }
-
-    public Task<ParameterValidationResult> ValidateRunStepConfigParametersAsync(IConfigParameters configParameters)
-    {
-        return Task.FromResult(new ParameterValidationResult());
-    }
-
-    public Task<ParameterValidationResult> ValidateSchemaConfigParametersAsync(IConfigParameters configParameters, int pageNumber)
     {
         return Task.FromResult(new ParameterValidationResult());
     }
