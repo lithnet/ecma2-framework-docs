@@ -10,6 +10,7 @@ The framework is available as a [NuGet package](https://www.nuget.org/packages/L
 
 ## Features
 - Runs your agent out of process, with its own private dependencies, so there are no DLL conflicts in the shared `Extensions` folder
+- Support for .NET 8.0 and later, as well as .NET Framework 4.8 and later.
 - Full async support
 - Support for dependency injection 
 - Support for `IOptions<T>` pattern for configuration with validation
