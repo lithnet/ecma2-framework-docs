@@ -45,7 +45,7 @@ using Microsoft.MetadirectoryServices;
 
 namespace Lithnet.Ecma2Framework.Example
 {
-    internal class UserImportProvider : ProducerConsumerImportProvider<User>
+    public class UserImportProvider : ProducerConsumerImportProvider<User>
     {
         private readonly HttpClient client;
         private readonly ILogger<UserImportProvider> logger;

@@ -20,7 +20,7 @@ This method should be used when config parameters are static and don't change in
 As shown in the validation example, you access the parameters using the `IConfigParameters` object. This is a wrapper with some helper functions that allow you to get the native values provided by the MIM engine.
 
 ```cs
-internal class ConfigParametersProvider : IConfigParametersProvider
+public class ConfigParametersProvider : IConfigParametersProvider
 {
     public Task GetCapabilitiesConfigParametersAsync(IConfigParameters existingParameters, IList<ConfigParameterDefinition> newDefinitions)
     {
@@ -70,7 +70,7 @@ You can access these parameters in your classes by injecting and `IConfigParamet
 In the example below, the "API URL" parameter is obtained from the `IConfigParameters` object passed into the class's constructor.
 
 ```cs
-internal class UserImportProvider : ProducerConsumerImportProvider<User>
+public class UserImportProvider : ProducerConsumerImportProvider<User>
 {
     private readonly HttpClient client;
     private readonly ILogger<UserImportProvider> logger;
@@ -93,7 +93,7 @@ We've implemented a much simpler mechanism to provide strongly-typed configurati
 
 The [`Options<T>` pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options) allows you to define the configuration parameters as a class, and the framework will create the necessary parameter binds for you.
 
-Define a class, and decorate it with one of the following attributes
+Define a class, and decorate it with one of the following attributes. The class must be `public`. The framework finds these option classes by reading your library's public types.
 - `[ConnectivityConfiguration]`
 - `[CapabilitiesConfiguration]`
 - `[SchemaConfiguration]`
@@ -120,7 +120,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Lithnet.Ecma2Framework.Example
 {
     [ConnectivityConfiguration]
-    internal class ConnectivityOptions
+    public class ConnectivityOptions
     {
         [StringParameter("API URL")]
         [Required]
@@ -138,7 +138,7 @@ The framework will use these attributes to build the configuration definition fo
 In a classes that requires access to the configuration, you can simply inject the relevant IOptions<T> interface to get the options you need.
 
 ```cs
-internal class UserImportProvider : ProducerConsumerImportProvider<User>
+public class UserImportProvider : ProducerConsumerImportProvider<User>
 {
     private readonly HttpClient client;
     private readonly ILogger<UserImportProvider> logger;

@@ -2,13 +2,18 @@
 
 * [Home](README.md)
 
+## Concepts
+* [How the framework works](architecture-overview.md)
+
 ## Using the Framework
 * [Getting started](getting-started.md)
-* [Definining the schema](defining-the-schema.md)
-* [Definining capabilites](defining-capabilities.md)
+* [Defining the schema](defining-the-schema.md)
+* [Defining capabilities](defining-capabilities.md)
 * [Defining configuration parameters](ma-config.md)
 * [Using the ProducerConsumerImportProvider<T>](using-the-producer-consumer.md)
-* [Building single-file assemblies](single-file-assemblies.md)
+
+## Deployment
+* [Packaging and deployment](packaging-and-deployment.md)
 
 ## Additional resources
 * [Example projects](framework-projects.md)

@@ -28,7 +28,7 @@ using Microsoft.MetadirectoryServices;
 
 namespace Lithnet.Ecma2Framework.Example
 {
-    internal class SchemaProvider : ISchemaProvider
+    public class SchemaProvider : ISchemaProvider
     {
         public Task<Schema> GetMmsSchemaAsync()
         {
@@ -57,6 +57,7 @@ namespace Lithnet.Ecma2Framework.Example
         }
     }
 }
+```
 
 ## Configuration parameters
 You can get the configuration parameters set for the management agent, by injecting `IConfigParameters` into your classes constructor.
@@ -68,11 +69,11 @@ using Microsoft.MetadirectoryServices;
 
 namespace Lithnet.Ecma2Framework.Example
 {
-    internal class SchemaProvider : ISchemaProvider
+    public class SchemaProvider : ISchemaProvider
     {
-        private readonly IConfigurationParameters configParameters;
+        private readonly IConfigParameters configParameters;
 
-        public SchemaProvider(IConfigurationParameters configParameters)
+        public SchemaProvider(IConfigParameters configParameters)
         {
             this.configParameters = configParameters;
         }
@@ -90,7 +91,7 @@ using Microsoft.MetadirectoryServices;
 
 namespace Lithnet.Ecma2Framework.Example
 {
-    internal class SchemaProvider : ISchemaProvider
+    public class SchemaProvider : ISchemaProvider
     {
         private readonly SchemaOptions schemaOptions;
 

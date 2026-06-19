@@ -2,7 +2,9 @@
 Once you have built your providers, you need to setup your Startup class.
 This will be used to tell your framework how to load your providers, and provide the opporunity to add any additional services to the dependency injection container.
 
-Create a new class, inheriting from `IEcmaStartup`. This class is where you register your services for dependency injection and configure any logging providers required. 
+Create a new class, inheriting from `IEcmaStartup`. This class is where you register your services for dependency injection and configure any logging providers required.
+
+> The startup class must be `public`. The framework finds it by reading your library's public types when it generates the host.
 
 You'll need to add your implementations here. 
 Any classes you have created that inherit from the following interfaces provided by the framework are added here.
@@ -25,7 +27,7 @@ using Microsoft.Extensions.Options;
 
 namespace Lithnet.Ecma2Framework.Example
 {
-    internal class Startup : IEcmaStartup
+    public class Startup : IEcmaStartup
     {
         public void Configure(IConfigurationBuilder builder)
         {
